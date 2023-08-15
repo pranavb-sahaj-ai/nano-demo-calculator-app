@@ -9,19 +9,19 @@ def hello():
 
 @app.route("/calculator/greeting", methods=['GET'])
 def greeting():
-    return ''
+    return 'Helo World!'
 
 @app.route("/calculator/add", methods=['POST'])
 def add():
-    first = request.args.get('first')
-    second = request.args.get('second')
-    return {'result': int(first) + int(second)}
+    numbers = request.json
+    result = numbers['first'] + numbers['second']
+    return {'result': result}
 
 @app.route("/calculator/subtract", methods=['POST'])
 def subtract():
-    first = request.args.get('first')
-    second = request.args.get('second')
-    return {'result': int(first) - int(second)}
+    numbers = request.json
+    result = numbers['first'] - numbers['second']
+    return {'result': result}
 
 if __name__ == '__main__':
-    app.run(port=8080,host='0.0.0.0')
+    app.run(port=5002,host='0.0.0.0')
