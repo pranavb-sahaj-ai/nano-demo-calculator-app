@@ -18,9 +18,9 @@ def add():
 @app.route("/calculator/subtract", methods=['POST'])
 def subtract():
     body = request.get_json()
-    diff=body['first']-body['second']
+    sum=body['first']-body['second']
     #return json response
-    return {"result":diff}
+    return {"result":sum}
 
 if __name__ == '__main__':
     app.run(port=8080,host='0.0.0.0')
